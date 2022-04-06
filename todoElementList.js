@@ -2,6 +2,7 @@ Vue.component('todoElement', {
     template: '\
     <li v-on:mousedown.stop="$emit(\'change\',$event)"> \
         <p>{{ text }}</p>\
+        <button class= "todos-elementList-main-element-button-notDone" v-on:click.stop="$emit(\'done\',$event)"></button>\
         <button class= "todos-elementList-main-element-button-edit" v-on:click.stop="$emit(\'edit\',$event)"></button>\
         <button class= "todos-elementList-main-element-button-remove" v-on:click.stop="$emit(\'remove\')"></button>\
       </li>\
@@ -54,11 +55,18 @@ const todoElementList = new Vue({
     },
 
     methods: {
+      done: function(){   
+        if (event.target.classList.contains("done")){
+          event.target.classList.remove("done")
+        } else {
+          event.target.classList.add("done")
+        }
+      },
       //Изменение элемента списка дел "todoElements"
       edit: function(index){
         console.log(event.target)
         if (this.inEdit == 1){
-          event.target.classList.add("activity")
+          event.target.classList.remove("activity")
           this.todoElements[index].text     = inputElement._data.todoInputValue
           this.isActive                     = false
           inputElement._data.todoInputValue = ""

@@ -93,11 +93,36 @@ body {
     background-color: rgb(226 178 195 );
 }
 
+.todos-elementList-main-element-button-notDone {
+    margin          : 3px; 
+    background      : #deeedd;
+    border          : 2px solid #deeedd; 
+    border-radius   : 50%;
+    box-shadow      : 2.5px 2.5px 0 0 rgb(94 33 63 / 59%);
+    height          : 15px;
+    width           : 10px;
+}
+
+.todos-elementList-main-element-button-notDone:hover {
+    border          : 2px solid #82ba90;
+    background      : #82da60;
+}
+
+.todos-elementList-main-element-button-notDone:active {
+    background-color: #80cabe;
+
+
+}
+
+.done {
+    /*background-color: #89ca80;*/
+    background-color: #26ff6f;
+}
 
 .todos-elementList-main-element-button-edit {
     margin          : 3px; 
-    background      : #82ca80;
-    border          : 2px solid #82ca80; 
+    background      : #f8a334;
+    border          : 2px solid #f4a334; 
     border-radius   : 50%;
     box-shadow      : 2.5px 2.5px 0 0 rgb(94 33 63 / 59%);
     height          : 15px;
@@ -105,12 +130,12 @@ body {
 }
 
 .todos-elementList-main-element-button-edit:hover {
-    border          : 2px solid #82ba90;
-    background      : #82da60;
+    border          : 2px solid #e4a24c;
+    background      : #daa25a;
 }
 
 .todos-elementList-main-element-button-edit:active {
-    background-color: #82ca80;
+    background-color: #f8a334;
 }
 
 .activity{
