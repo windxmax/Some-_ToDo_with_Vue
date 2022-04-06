@@ -1,0 +1,59 @@
+<!Doctype html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8" />
+        <title>todo with view</title>
+        <link rel="stylesheet" href="index.css"/>
+        <script src     = "https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.2/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.20.0/vuedraggable.umd.min.js"></script>-->
+    </head>
+    <body>
+        <div class  = "todos-main">
+            <div 
+                id      = "todoElementAdd"
+                class   = "todos-addTodo">
+                <input
+                    class           = "todos-addTodo_input"
+                    v-model.trim    = "todoInputValue"
+                    placeholder     = "Введите задачу"/>    
+                <button
+                    class           = "todos-addTodo_button"
+                    v-on:click.stop = "addTodoElem(todoInputValue)">
+                    Добавить    
+                </button>  
+            </div>
+            
+            <div
+                class   = "todos-elementList-block"
+                id      = "todoElementList">
+                <ul 
+                    class   = "todos-elementList-main">
+                    <li
+                        class           = "todos-elementList-main-element"
+                        is              = "todoElement"
+                        v-for           = "(todo, index) in todoElements"
+                        v-bind:id       = "index"
+                        v-bind:key      = "todo.id"
+                        v-bind:text     = "todo.text"
+                        v-on:change     = "dragNdrop"
+                        v-on:remove     = "deleteElement(index)"
+                    ></li>
+
+                </ul>        
+            </div>
+
+        </div> 
+
+        <script 
+            src     = "./todoElementList.js"
+        ></script>
+        <script 
+            src     = "./inputValue.js"
+        ></script>
+        
+
+    </body>
+
+</html>
