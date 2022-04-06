@@ -2,7 +2,8 @@ Vue.component('todoElement', {
     template: '\
     <li v-on:mousedown.stop="$emit(\'change\',$event)"> \
         <p>{{ text }}</p>\
-        <button class= "todos-elementList-main-element-button" v-on:click.stop="$emit(\'remove\')"></button>\
+        <button class= "todos-elementList-main-element-button-edit" v-on:click.stop="$emit(\'edit\',$event)"></button>\
+        <button class= "todos-elementList-main-element-button-remove" v-on:click.stop="$emit(\'remove\')"></button>\
       </li>\
     ',
     props: ['text']
@@ -13,7 +14,8 @@ const todoElementList = new Vue({
     data: {
         todoElements    :[],
         todoId          : 0,
-        currentDroppable: null, 
+        inEdit          : 0, 
+        isActive        : false
     },
     //Если в списке дел есть значения по умолачнию, тут мы сохраняем их в localstorage  и позволяем их модифицировать
     mounted() {
@@ -43,11 +45,33 @@ const todoElementList = new Vue({
       todoId: function(){
         let parsedNewtodoId = JSON.stringify(this.todoId)
         localStorage.setItem('todoId', parsedNewtodoId)
+      },
+      //Отлеживвание редактирование элемента
+      inEdit: function(){
+        let parsedNewElements = JSON.stringify(this.todoElements)
+        localStorage.setItem('todoElements', parsedNewElements)       
       }
     },
 
     methods: {
-      //Удаление элемента списка дел "todoElements"
+      //Изменение элемента списка дел "todoElements"
+      edit: function(index){
+        console.log(event.target)
+        if (this.inEdit == 1){
+          event.target.classList.add("activity")
+          this.todoElements[index].text     = inputElement._data.todoInputValue
+          this.isActive                     = false
+          inputElement._data.todoInputValue = ""
+          this.inEdit                       = 0
+        } else if(this.inEdit == 0){
+          event.target.classList.add("activity")
+          inputElement._data.todoInputValue = this.todoElements[index].text
+          this.isActive                     = true
+          this.inEdit                       = 1 
+        }
+
+      },
+      //Удаление элемента 
       deleteElement: function (index) {
         this.todoElements.splice(index, 1)
       },

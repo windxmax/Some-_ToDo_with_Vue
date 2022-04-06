@@ -20,7 +20,7 @@
                     placeholder     = "Введите задачу"/>    
                 <button
                     class           = "todos-addTodo_button"
-                    v-on:click.stop = "addTodoElem(todoInputValue)">
+                    v-on:click      = "addTodoElem(todoInputValue)">
                     Добавить    
                 </button>  
             </div>
@@ -39,6 +39,7 @@
                         v-bind:text     = "todo.text"
                         v-on:change     = "dragNdrop"
                         v-on:remove     = "deleteElement(index)"
+                        v-on:edit       = "edit(index)"
                     ></li>
 
                 </ul>        

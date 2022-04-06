@@ -93,10 +93,48 @@ body {
     background-color: rgb(226 178 195 );
 }
 
-.todos-elementList-main-element-button {
+
+.todos-elementList-main-element-button-edit {
+    margin          : 3px; 
+    background      : #82ca80;
+    border          : 2px solid #82ca80; 
+    border-radius   : 50%;
+    box-shadow      : 2.5px 2.5px 0 0 rgb(94 33 63 / 59%);
+    height          : 15px;
+    width           : 10px;
+}
+
+.todos-elementList-main-element-button-edit:hover {
+    border          : 2px solid #82ba90;
+    background      : #82da60;
+}
+
+.todos-elementList-main-element-button-edit:active {
+    background-color: #82ca80;
+}
+
+.activity{
+    margin          : 3px; 
+    background      : #ebd664;
+    border          : 2px solid hsl(59, 47%, 64%); 
+    border-radius   : 50%;
+    box-shadow      : 2.5px 2.5px 0 0 rgb(94 33 63 / 59%);
+    height          : 15px;
+    width           : 10px;
+}
+
+.activity:hover {
+    border          : 2px solid #ebd964;
+    background      : #ebc700;
+}
+
+.activity:active {
+    background-color: #ebd664;
+}
+
+.todos-elementList-main-element-button-remove {
     margin          : 3px; 
     background      : #ff5050;
-    /*border        : 2px solid #000000;*/
     border          : 2px solid #ff5050; 
     border-radius   : 50%;
     box-shadow      : 2.5px 2.5px 0 0 rgb(94 33 63 / 59%);
@@ -105,12 +143,12 @@ body {
 
 }
 
-.todos-elementList-main-element-button:hover {
+.todos-elementList-main-element-button-remove:hover {
     border          : 2px solid #ff9090;
     background      : #ff7070;
 }
 
-.todos-elementList-main-element-button:active {
+.todos-elementList-main-element-button-remove:active {
     background-color: #ff5050;
 }
 
