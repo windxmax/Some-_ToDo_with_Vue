@@ -34,6 +34,7 @@ const todoElementList = new Vue({
         localStorage.setItem('todoElements', parsedTodoElements)
         localStorage.setItem('todoId', parsedTodoId)
       }
+
     },
 
     watch: {
@@ -51,15 +52,21 @@ const todoElementList = new Vue({
       inEdit: function(){
         let parsedNewElements = JSON.stringify(this.todoElements)
         localStorage.setItem('todoElements', parsedNewElements)       
-      }
+      }/*,
+      done: function(){
+
+      }*/
     },
 
     methods: {
       done: function(){   
+        console.log(event.target.parentNode.id, this.todoElements[event.target.parentNode.id])
         if (event.target.classList.contains("done")){
           event.target.classList.remove("done")
+          this.todoElements[event.target.parentNode.id].toDone = false
         } else {
           event.target.classList.add("done")
+          this.todoElements[event.target.parentNode.id].toDone = true
         }
       },
       //Изменение элемента списка дел "todoElements"
